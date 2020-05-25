@@ -1,0 +1,35 @@
+<!--start of the program by "Shruti Gupta" -->
+<html>
+    <body bgcolor=" lightblue" align="center">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $("#search").click(function(){
+                    var empid=$("#empid").val();
+                    $.post("searchemployee.php",{empid:empid},function(r,s)
+                    {
+                        var s=r.split(",");
+                        $("#name").val(s[0]);
+                        $("#designation").val(s[1]);
+                        $('#salary').val(s[2]);
+                    });
+                });
+            });
+        </script>
+        <div style="border:2px solid black; padding:30px;width: fit-content;text-align: center;margin-left: 40%;background-color: aquamarine;">
+            <b>Employee ID</b><input type="text" id="empid"style= "background: azure;">
+            <br><br><br>
+            <input type="button" value="search" id="search">
+            <br><br>
+            <b>Name</b><input type="text" id = "name" style= "background: azure;">
+            <br><br><br>
+            <b>Designation</b><input type="text" id="designation"style= "background: azure;">
+            <br><br><br>
+            <b>salary</b><input type="text" id="salary"style= "background: azure;">
+            <br><br><br>
+        </div>
+            
+            <div id="message"></div>
+</body>
+</html>    
+<!--end of the program by "Shruti Gupta" -->
